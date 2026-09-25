@@ -1,4 +1,9 @@
-```css
+/* =========================================================
+   REVALINA PORTFOLIO
+   Soft Editorial + Pastel Pink
+   No HTML changes required
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,24 +12,62 @@
 }
 
 :root {
-    --pink-light: #fff7fa;
-    --pink-soft: #fde8ef;
-    --pink: #f2b6c8;
-    --pink-dark: #d9829e;
-    --pink-deep: #c96d8c;
+    --cream: #fffaf8;
+    --cream-2: #fffdfb;
+    --pink-light: #fff5f8;
+    --pink-soft: #fbe7ee;
+    --pink: #edbdcc;
+    --pink-dark: #c98298;
+    --pink-deep: #b96882;
+    --rose-pale: #f7dfe7;
 
-    --text: #514047;
-    --text-light: #8d7c83;
-
+    --text: #4e4146;
+    --text-light: #8b7a81;
     --white: #ffffff;
-    --border: #f1d6df;
+    --border: #efd9e0;
+
+    --shadow-soft: 0 18px 50px rgba(157, 102, 119, 0.08);
+    --shadow-hover: 0 25px 60px rgba(157, 102, 119, 0.14);
+}
+
+html {
+    background: var(--cream);
 }
 
 body {
+    position: relative;
+    overflow-x: hidden;
     font-family: "DM Sans", sans-serif;
-    background: var(--pink-light);
+    background:
+        radial-gradient(circle at 8% 12%, rgba(237, 189, 204, 0.13) 0 90px, transparent 91px),
+        radial-gradient(circle at 93% 38%, rgba(237, 189, 204, 0.10) 0 120px, transparent 121px),
+        var(--cream);
     color: var(--text);
     line-height: 1.7;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 260px;
+    height: 260px;
+    left: -150px;
+    top: 35%;
+    border: 1px solid rgba(201, 130, 152, 0.12);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::after {
+    content: "✦";
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    color: rgba(201, 130, 152, 0.22);
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 0;
 }
 
 a {
@@ -32,49 +75,53 @@ a {
     color: inherit;
 }
 
+::selection {
+    background: var(--pink-soft);
+    color: var(--pink-deep);
+}
 
-/* =========================
+/* =========================================================
    NAVBAR
-========================= */
+========================================================= */
 
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
-
     z-index: 1000;
-
-    background: rgba(255, 247, 250, 0.9);
-
-    backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(217, 130, 158, 0.15);
+    background: rgba(255, 250, 248, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(201, 130, 152, 0.12);
 }
 
 .nav-container {
     max-width: 1150px;
-
     height: 75px;
-
     margin: auto;
-
     padding: 0 25px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 .logo {
+    position: relative;
     font-family: "Playfair Display", serif;
-
     font-size: 25px;
-
     font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 1px;
+    left: 0;
+    bottom: -4px;
+    background: var(--pink);
 }
 
 .logo span {
@@ -83,272 +130,326 @@ a {
 
 nav {
     display: flex;
-
     gap: 28px;
 }
 
 nav a {
+    position: relative;
     color: var(--text-light);
-
     font-size: 14px;
+    transition: 0.3s ease;
+}
 
-    transition: 0.3s;
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: var(--pink-dark);
+    transition: width 0.3s ease;
 }
 
 nav a:hover {
     color: var(--pink-dark);
 }
 
+nav a:hover::after {
+    width: 100%;
+}
 
-/* =========================
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
+    position: relative;
     max-width: 1150px;
-
     min-height: 100vh;
-
     margin: auto;
-
-    padding: 140px 25px 80px;
-
+    padding: 140px 25px 90px;
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 70px;
 }
 
+.hero::before {
+    content: "PORTFOLIO";
+    position: absolute;
+    right: -55px;
+    top: 47%;
+    color: rgba(201, 130, 152, 0.055);
+    font-family: "Playfair Display", serif;
+    font-size: 92px;
+    letter-spacing: 8px;
+    transform: rotate(90deg);
+    pointer-events: none;
+}
+
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 600px;
 }
 
 .small-title,
 .section-label {
     color: var(--pink-dark);
-
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.small-title::before,
+.section-label::before {
+    content: "— ";
+    color: var(--pink);
 }
 
 .hero h1 {
     margin-top: 15px;
-
     font-family: "Playfair Display", serif;
-
     font-size: clamp(48px, 6vw, 78px);
-
-    line-height: 1.05;
+    line-height: 1.02;
+    letter-spacing: -2px;
 }
 
 .hero h1 span {
     color: var(--pink-dark);
+    position: relative;
+}
+
+.hero h1 span::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    bottom: -4px;
+    height: 7px;
+    background: rgba(237, 189, 204, 0.30);
+    z-index: -1;
+    transform: rotate(-1deg);
 }
 
 .hero-description {
     margin-top: 28px;
-
-    font-size: 19px;
-
+    font-size: 18px;
     font-weight: 600;
 }
 
 .hero-text {
     margin-top: 10px;
-
     color: var(--text-light);
-
     max-width: 480px;
 }
 
 .main-button {
     display: inline-flex;
-
     align-items: center;
-
     gap: 15px;
-
     margin-top: 30px;
-
     padding: 13px 23px;
-
     border-radius: 50px;
-
     background: var(--pink-dark);
-
     color: white;
-
     font-size: 14px;
-
     font-weight: 600;
-
-    transition: 0.3s;
-
-    box-shadow: 0 10px 25px rgba(217, 130, 158, 0.25);
+    transition: 0.3s ease;
+    box-shadow: 0 10px 25px rgba(201, 130, 152, 0.22);
 }
 
 .main-button:hover {
-    transform: translateY(-3px);
-
+    transform: translateY(-4px);
     background: var(--pink-deep);
+    box-shadow: 0 15px 30px rgba(201, 130, 152, 0.27);
 }
 
-
-/* =========================
+/* =========================================================
    HERO PHOTO
-========================= */
+========================================================= */
 
 .hero-photo {
     position: relative;
-
     width: 370px;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
+    z-index: 2;
+}
+
+.hero-photo::before {
+    content: "";
+    position: absolute;
+    width: 330px;
+    height: 430px;
+    border: 1px solid rgba(201, 130, 152, 0.25);
+    border-radius: 180px 180px 35px 35px;
+    transform: rotate(-5deg);
+    z-index: -2;
+}
+
+.hero-photo::after {
+    content: "♡";
+    position: absolute;
+    right: 5px;
+    bottom: 70px;
+    color: var(--pink-dark);
+    font-size: 28px;
+    transform: rotate(12deg);
 }
 
 .photo-frame {
     width: 320px;
-
     height: 420px;
-
     padding: 12px;
-
     background: white;
-
     border-radius: 170px 170px 30px 30px;
-
-    box-shadow: 0 25px 60px rgba(180, 115, 135, 0.15);
-
+    box-shadow: 0 25px 60px rgba(180, 115, 135, 0.14);
     transform: rotate(2deg);
+    transition: 0.4s ease;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) translateY(-5px);
 }
 
 .photo-frame img {
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
     border-radius: 160px 160px 20px 20px;
 }
 
 .photo-caption {
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     margin-top: 20px;
-
     color: var(--text-light);
-
     font-size: 13px;
+    letter-spacing: 0.3px;
 }
 
 .flower {
     position: absolute;
-
     color: var(--pink-dark);
-
     font-size: 38px;
-
     z-index: 3;
 }
 
 .flower-one {
     top: 10px;
-
     right: 5px;
-
     transform: rotate(15deg);
 }
 
 .flower-two {
     bottom: 90px;
-
     left: 0;
 }
 
-
-/* =========================
+/* =========================================================
    SECTION
-========================= */
+========================================================= */
 
 .section {
+    position: relative;
     max-width: 1150px;
-
     margin: auto;
+    padding: 115px 25px;
+    z-index: 1;
+}
 
-    padding: 110px 25px;
+.section::before {
+    content: "✦";
+    position: absolute;
+    top: 85px;
+    right: 35px;
+    color: rgba(201, 130, 152, 0.25);
+    font-size: 18px;
 }
 
 .section-heading {
+    position: relative;
     margin-bottom: 55px;
+}
+
+.section-heading::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    margin-top: 18px;
+    background: var(--pink);
 }
 
 .section-heading h2 {
     margin-top: 8px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 44px;
+    letter-spacing: -1px;
 }
 
 .section-heading h2 span {
     color: var(--pink-dark);
 }
 
-
-/* =========================
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-container {
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 60px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 70px;
+    align-items: start;
 }
 
 .about-text {
     color: var(--text-light);
-
     font-size: 16px;
+    max-width: 540px;
 }
 
 .about-text p + p {
     margin-top: 20px;
 }
 
+.about-text p:first-child::first-letter {
+    font-family: "Playfair Display", serif;
+    font-size: 48px;
+    color: var(--pink-dark);
+    float: left;
+    line-height: 0.8;
+    margin: 8px 8px 0 0;
+}
+
 .personal-card {
-    padding: 30px;
-
-    background: white;
-
-    border-radius: 25px;
-
+    position: relative;
+    padding: 30px 32px;
+    background: rgba(255,255,255,0.76);
+    border-radius: 6px;
     border: 1px solid var(--border);
+    box-shadow: var(--shadow-soft);
+}
 
-    box-shadow: 0 15px 40px rgba(180, 115, 135, 0.08);
+.personal-card::before {
+    content: "";
+    position: absolute;
+    width: 48px;
+    height: 12px;
+    top: -6px;
+    left: 35px;
+    background: rgba(237, 189, 204, 0.55);
+    transform: rotate(-2deg);
 }
 
 .card-title {
     margin-bottom: 20px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 22px;
 }
 
@@ -358,14 +459,10 @@ nav a:hover {
 
 .info-row {
     display: flex;
-
     justify-content: space-between;
-
     gap: 25px;
-
     padding: 14px 0;
-
-    border-bottom: 1px solid #f5e7eb;
+    border-bottom: 1px solid #f3e5e9;
 }
 
 .info-row:last-child {
@@ -374,92 +471,88 @@ nav a:hover {
 
 .info-row span {
     color: var(--text-light);
-
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .info-row strong {
     text-align: right;
-
     font-size: 14px;
 }
 
-
-/* =========================
+/* =========================================================
    EDUCATION
-========================= */
+========================================================= */
 
 .education-section {
+    position: relative;
     max-width: none;
-
-    background: var(--pink-soft);
-
+    background:
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,0.8) 0 120px, transparent 121px),
+        var(--pink-soft);
     padding-left: calc((100% - 1100px) / 2);
-
     padding-right: calc((100% - 1100px) / 2);
+    overflow: hidden;
+}
+
+.education-section::after {
+    content: "JOURNEY";
+    position: absolute;
+    right: -35px;
+    bottom: 30px;
+    font-family: "Playfair Display", serif;
+    font-size: 90px;
+    color: rgba(201, 130, 152, 0.07);
+    letter-spacing: 5px;
 }
 
 .timeline {
     position: relative;
-
     max-width: 850px;
 }
 
 .timeline::before {
     content: "";
-
     position: absolute;
-
     left: 8px;
-
     top: 5px;
-
     bottom: 0;
-
-    width: 2px;
-
-    background: var(--pink);
+    width: 1px;
+    background: var(--pink-dark);
+    opacity: 0.45;
 }
 
 .timeline-item {
     position: relative;
-
     padding-left: 45px;
-
     padding-bottom: 45px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 5px;
 }
 
 .timeline-dot {
     position: absolute;
-
     left: 0;
-
     top: 5px;
-
     width: 18px;
-
     height: 18px;
-
     border-radius: 50%;
-
     background: var(--pink-dark);
-
     border: 4px solid var(--pink-soft);
+    box-shadow: 0 0 0 1px rgba(201,130,152,0.25);
 }
 
 .timeline-year {
     color: var(--pink-dark);
-
-    font-size: 13px;
-
+    font-size: 12px;
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .timeline-content h3 {
     margin-top: 5px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 24px;
 }
 
@@ -468,120 +561,140 @@ nav a:hover {
     color: var(--text-light);
 }
 
-
-/* =========================
+/* =========================================================
    SKILLS
-========================= */
+========================================================= */
 
 .skills-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 20px;
+    gap: 18px;
 }
 
 .skill-card {
-    padding: 30px;
-
-    background: white;
-
+    position: relative;
+    min-height: 175px;
+    padding: 28px;
+    background: rgba(255,255,255,0.70);
     border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: 0.35s ease;
+    overflow: hidden;
+}
 
-    border-radius: 25px;
-
-    transition: 0.3s;
+.skill-card::after {
+    content: "✦";
+    position: absolute;
+    right: 18px;
+    top: 13px;
+    color: rgba(201, 130, 152, 0.18);
+    font-size: 17px;
 }
 
 .skill-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow: 0 15px 35px rgba(180, 115, 135, 0.12);
+    transform: translateY(-7px) rotate(-0.4deg);
+    background: white;
+    box-shadow: var(--shadow-hover);
 }
 
 .skill-icon {
     color: var(--pink-dark);
-
     font-size: 25px;
 }
 
 .skill-card h3 {
     margin-top: 15px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 21px;
 }
 
 .skill-card p {
     margin-top: 8px;
-
     color: var(--text-light);
-
     font-size: 14px;
 }
 
-
-/* =========================
-   PROJECT
-========================= */
+/* =========================================================
+   PROJECTS
+========================================================= */
 
 .projects-section {
+    position: relative;
     max-width: none;
-
     background: white;
-
     padding-left: calc((100% - 1100px) / 2);
-
     padding-right: calc((100% - 1100px) / 2);
+    overflow: hidden;
+}
+
+.projects-section::before {
+    content: "WORKS";
+    position: absolute;
+    left: -35px;
+    top: 120px;
+    font-family: "Playfair Display", serif;
+    font-size: 95px;
+    color: rgba(201, 130, 152, 0.045);
+    transform: rotate(-90deg);
+    pointer-events: none;
 }
 
 .projects-grid {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
-    gap: 25px;
+    gap: 28px;
+    align-items: start;
 }
 
 .project-card {
+    position: relative;
     overflow: hidden;
-
     background: var(--pink-light);
-
     border: 1px solid var(--border);
+    border-radius: 5px;
+    transition: 0.35s ease;
+}
 
-    border-radius: 25px;
+.project-card:nth-child(2) {
+    margin-top: 35px;
+}
 
-    transition: 0.3s;
+.project-card:nth-child(3) {
+    margin-top: 10px;
+}
+
+.project-card::before {
+    content: "";
+    position: absolute;
+    width: 45px;
+    height: 11px;
+    top: -5px;
+    left: 25px;
+    background: rgba(237, 189, 204, 0.60);
+    transform: rotate(-3deg);
+    z-index: 3;
 }
 
 .project-card:hover {
-    transform: translateY(-7px);
-
-    box-shadow: 0 20px 40px rgba(180, 115, 135, 0.12);
+    transform: translateY(-9px);
+    box-shadow: var(--shadow-hover);
 }
 
 .project-image {
-    height: 210px;
-
+    height: 220px;
     overflow: hidden;
-
     background: var(--pink-soft);
 }
 
 .project-image img {
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
-    transition: 0.5s;
+    transition: 0.6s ease;
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .project-info {
@@ -590,76 +703,87 @@ nav a:hover {
 
 .project-info > p:first-child {
     color: var(--pink-dark);
-
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 700;
-
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 
 .project-info h3 {
     margin-top: 5px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 22px;
+    line-height: 1.25;
 }
 
 .project-info p {
     margin-top: 10px;
-
     color: var(--text-light);
-
     font-size: 14px;
 }
 
 .project-info a {
     display: inline-block;
-
     margin-top: 18px;
-
     color: var(--pink-dark);
-
     font-size: 14px;
-
     font-weight: 700;
-
-    transition: 0.3s;
+    transition: 0.3s ease;
+    border-bottom: 1px solid transparent;
 }
 
 .project-info a:hover {
     color: var(--pink-deep);
-
     transform: translateX(4px);
+    border-bottom-color: var(--pink);
 }
 
-
-/* =========================
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact-section {
-    padding: 120px 25px;
-
+    position: relative;
+    padding: 125px 25px;
     text-align: center;
+    background:
+        radial-gradient(circle at 20% 35%, rgba(255,255,255,0.8) 0 80px, transparent 81px),
+        radial-gradient(circle at 80% 65%, rgba(255,255,255,0.75) 0 100px, transparent 101px),
+        var(--pink-soft);
+    overflow: hidden;
+}
 
-    background: var(--pink-soft);
+.contact-section::before {
+    content: "♡";
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    font-family: "Playfair Display", serif;
+    font-size: 80px;
+    color: rgba(201,130,152,0.10);
+    transform: rotate(-15deg);
+}
+
+.contact-section::after {
+    content: "✦";
+    position: absolute;
+    right: 12%;
+    bottom: 25%;
+    font-size: 55px;
+    color: rgba(201,130,152,0.11);
 }
 
 .contact-content {
+    position: relative;
+    z-index: 2;
     max-width: 700px;
-
     margin: auto;
 }
 
 .contact-content h2 {
     margin-top: 15px;
-
     font-family: "Playfair Display", serif;
-
     font-size: 48px;
-
     line-height: 1.2;
 }
 
@@ -669,93 +793,107 @@ nav a:hover {
 
 .contact-content > p:last-of-type {
     margin-top: 15px;
-
     color: var(--text-light);
 }
 
-
-/* =========================
-   SOCIAL MEDIA
-========================= */
-
 .social-links {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-top: 30px;
 }
 
 .social-links a {
     display: flex;
-
     align-items: center;
-
     gap: 9px;
-
     padding: 11px 18px;
-
     border: 1px solid #e8bdca;
-
     border-radius: 50px;
-
-    background: rgba(255,255,255,0.75);
-
+    background: rgba(255,255,255,0.72);
     color: #8d6874;
-
     font-size: 14px;
-
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .social-links a:hover {
     background: var(--pink-dark);
-
     color: white;
-
     border-color: var(--pink-dark);
-
     transform: translateY(-3px);
-
-    box-shadow: 0 8px 20px rgba(217, 127, 154, 0.2);
+    box-shadow: 0 8px 20px rgba(217, 127, 154, 0.20);
 }
 
 .social-links i {
     font-size: 16px;
 }
 
-
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
     max-width: 1100px;
-
     margin: auto;
-
     padding: 25px;
-
     display: flex;
-
     justify-content: space-between;
-
     color: var(--text-light);
-
     font-size: 13px;
+    background: var(--cream);
 }
 
+/* =========================================================
+   SCROLL / LOAD ANIMATION
+========================================================= */
 
-/* =========================
+@keyframes softFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.flower-one {
+    animation: softFloat 4s ease-in-out infinite;
+}
+
+.flower-two {
+    animation: softFloat 5s ease-in-out infinite reverse;
+}
+
+/* =========================================================
    RESPONSIVE
-========================= */
+========================================================= */
+
+@media (max-width: 950px) {
+    .hero {
+        gap: 35px;
+    }
+
+    .hero-photo {
+        width: 320px;
+    }
+
+    .photo-frame {
+        width: 280px;
+        height: 375px;
+    }
+
+    .hero-photo::before {
+        width: 290px;
+        height: 385px;
+    }
+
+    .projects-grid {
+        gap: 18px;
+    }
+}
 
 @media (max-width: 850px) {
-
     nav {
         gap: 12px;
     }
@@ -766,9 +904,7 @@ footer {
 
     .hero {
         flex-direction: column;
-
         text-align: center;
-
         padding-top: 120px;
     }
 
@@ -777,8 +913,21 @@ footer {
         margin-right: auto;
     }
 
+    .hero::before {
+        display: none;
+    }
+
+    .hero-photo {
+        margin-top: 25px;
+    }
+
     .about-container {
         grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .about-text {
+        max-width: 700px;
     }
 
     .skills-grid,
@@ -786,10 +935,19 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
+    .project-card:nth-child(2),
+    .project-card:nth-child(3) {
+        margin-top: 0;
+    }
+
+    .education-section,
+    .projects-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
 }
 
 @media (max-width: 600px) {
-
     .nav-container {
         height: 65px;
     }
@@ -798,18 +956,58 @@ footer {
         display: none;
     }
 
+    .hero {
+        min-height: auto;
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
+
     .hero h1 {
         font-size: 45px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-photo {
+        width: 290px;
     }
 
     .photo-frame {
         width: 270px;
-
         height: 350px;
+    }
+
+    .hero-photo::before {
+        width: 280px;
+        height: 360px;
+    }
+
+    .section {
+        padding: 85px 20px;
+    }
+
+    .section::before {
+        right: 20px;
+        top: 65px;
+    }
+
+    .section-heading {
+        margin-bottom: 40px;
     }
 
     .section-heading h2 {
         font-size: 35px;
+    }
+
+    .about-text {
+        font-size: 15px;
+    }
+
+    .personal-card {
+        padding: 25px;
     }
 
     .skills-grid,
@@ -817,21 +1015,32 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .skill-card {
+        min-height: auto;
+    }
+
+    .project-card:nth-child(2),
+    .project-card:nth-child(3) {
+        margin-top: 0;
+    }
+
+    .project-image {
+        height: 210px;
+    }
+
     .education-section,
     .projects-section {
-        padding-left: 25px;
-
-        padding-right: 25px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
-    .info-row {
-        flex-direction: column;
-
-        gap: 3px;
+    .education-section::after,
+    .projects-section::before {
+        display: none;
     }
 
-    .info-row strong {
-        text-align: left;
+    .contact-section {
+        padding: 90px 20px;
     }
 
     .contact-content h2 {
@@ -840,11 +1049,21 @@ footer {
 
     footer {
         flex-direction: column;
-
         text-align: center;
-
         gap: 5px;
     }
-
 }
-```
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
