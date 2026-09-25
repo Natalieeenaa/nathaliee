@@ -1597,3 +1597,122 @@ nav a {
         top: -50px;
     }
 }
+
+/* =========================================================
+   ✨ MOUSE GLOW FOTO PROFIL
+========================================================= */
+
+.hero-photo {
+    position: relative;
+    overflow: visible;
+}
+
+.mouse-glow {
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transform: translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 215, 227, 0.55) 0%,
+            rgba(242, 182, 200, 0.30) 28%,
+            rgba(242, 182, 200, 0.12) 50%,
+            transparent 72%
+        );
+
+    filter: blur(12px);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        left 0.08s linear,
+        top 0.08s linear;
+
+    z-index: 20;
+}
+
+.mouse-glow.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ✦ SPARKLE
+========================================================= */
+
+.mouse-sparkle {
+    position: absolute;
+
+    pointer-events: none;
+
+    color: var(--pink-dark);
+
+    font-size: 13px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    z-index: 25;
+
+    animation:
+        sparkleFloat 0.8s ease-out forwards;
+}
+
+
+@keyframes sparkleFloat {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0);
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translate(-50%, -65%)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(-50%, -110%)
+            scale(0.35)
+            rotate(20deg);
+    }
+
+}
+
+
+/* =========================================================
+   ✨ FOTO PROFILE HOVER
+========================================================= */
+
+.photo-frame {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.hero-photo:hover .photo-frame {
+
+    box-shadow:
+        0 30px 65px rgba(180, 115, 135, 0.20),
+        0 0 35px rgba(237, 189, 204, 0.20);
+
+}
