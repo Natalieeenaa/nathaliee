@@ -1067,3 +1067,533 @@ footer {
         transition: none !important;
     }
 }
+
+/* =========================================================
+   FINAL AESTHETIC UPGRADE
+   Layout + ornaments — HTML tetap
+========================================================= */
+
+/* --- Background lebih hidup --- */
+body {
+    background:
+        radial-gradient(circle at 6% 10%, rgba(237,189,204,.22) 0 75px, transparent 76px),
+        radial-gradient(circle at 94% 28%, rgba(237,189,204,.16) 0 110px, transparent 111px),
+        radial-gradient(circle at 82% 88%, rgba(247,223,231,.55) 0 150px, transparent 151px),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 39px,
+            rgba(201,130,152,.025) 40px
+        ),
+        var(--cream);
+}
+
+/* little floating decorative marks */
+body::after {
+    content: "✦   ˚   ♡   ✧";
+    right: 28px;
+    bottom: 28px;
+    font-size: 14px;
+    letter-spacing: 7px;
+    animation: softFloat 5s ease-in-out infinite;
+}
+
+/* --- Navbar --- */
+.navbar {
+    box-shadow: 0 8px 30px rgba(157,102,119,.05);
+}
+
+.logo::before {
+    content: "✦";
+    position: absolute;
+    left: -17px;
+    top: -7px;
+    color: var(--pink);
+    font-size: 10px;
+}
+
+nav a {
+    padding: 8px 0;
+}
+
+/* --- HERO: more editorial --- */
+.hero {
+    max-width: 1200px;
+    min-height: 100vh;
+    padding-left: 45px;
+    padding-right: 45px;
+    gap: 30px;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 25px 0 25px 10px;
+}
+
+.hero-content::before {
+    content: "01";
+    position: absolute;
+    left: -12px;
+    top: -35px;
+    font-family: "Playfair Display", serif;
+    font-size: 125px;
+    line-height: 1;
+    color: rgba(201,130,152,.065);
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 7vw, 88px);
+}
+
+.hero-description {
+    max-width: 570px;
+    font-size: 19px;
+}
+
+.hero-text {
+    max-width: 510px;
+}
+
+/* extra handwritten-style decoration */
+.hero-content::after {
+    content: "little moments ✦";
+    position: absolute;
+    left: 12px;
+    bottom: -25px;
+    color: rgba(185,104,130,.55);
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 14px;
+    transform: rotate(-4deg);
+}
+
+/* --- PHOTO: layered scrapbook look --- */
+.hero-photo {
+    width: 390px;
+    min-height: 500px;
+}
+
+.hero-photo::before {
+    width: 345px;
+    height: 445px;
+    border: 1.5px solid rgba(201,130,152,.32);
+    transform: rotate(-7deg) translate(-8px, 4px);
+}
+
+.photo-frame {
+    position: relative;
+    width: 330px;
+    height: 435px;
+    padding: 11px;
+    transform: rotate(3deg);
+    box-shadow:
+        0 25px 55px rgba(180,115,135,.16),
+        0 0 0 1px rgba(255,255,255,.7);
+}
+
+.photo-frame::before {
+    content: "";
+    position: absolute;
+    width: 65px;
+    height: 14px;
+    top: -9px;
+    left: 35px;
+    background: rgba(237,189,204,.70);
+    transform: rotate(-6deg);
+    z-index: 4;
+}
+
+.photo-frame::after {
+    content: "♡";
+    position: absolute;
+    right: -30px;
+    top: 35px;
+    color: var(--pink-dark);
+    font-size: 22px;
+    transform: rotate(15deg);
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) translateY(-9px) scale(1.015);
+    box-shadow:
+        0 30px 65px rgba(180,115,135,.20),
+        0 0 35px rgba(237,189,204,.22);
+}
+
+.photo-caption {
+    position: relative;
+    z-index: 5;
+}
+
+/* --- mouse-follow glow placeholder, controlled by JS later --- */
+.hero-photo {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.hero-photo .mouse-glow {
+    display: none;
+}
+
+/* --- SECTION HEADINGS --- */
+.section-heading {
+    padding-left: 72px;
+}
+
+.section-heading::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--pink);
+    font-size: 24px;
+}
+
+.section-heading::after {
+    width: 90px;
+    margin-top: 20px;
+}
+
+.section-heading h2 {
+    font-size: clamp(40px, 5vw, 52px);
+}
+
+/* --- ABOUT: asymmetrical editorial card --- */
+.about-container {
+    grid-template-columns: minmax(0, 1.15fr) minmax(330px, .85fr);
+    gap: 90px;
+}
+
+.about-text {
+    padding-top: 8px;
+    font-size: 16.5px;
+    line-height: 1.9;
+}
+
+.personal-card {
+    transform: rotate(1.2deg);
+    box-shadow: 12px 18px 0 rgba(237,189,204,.20), var(--shadow-soft);
+    transition: .35s ease;
+}
+
+.personal-card:hover {
+    transform: rotate(0deg) translateY(-6px);
+    box-shadow: 15px 25px 0 rgba(237,189,204,.24), var(--shadow-hover);
+}
+
+/* --- EDUCATION: larger timeline spacing + decorative circles --- */
+.education-section {
+    padding-top: 125px;
+    padding-bottom: 125px;
+}
+
+.education-section::before {
+    content: "EDUCATION";
+    position: absolute;
+    left: 3%;
+    top: 35%;
+    font-family: "Playfair Display", serif;
+    font-size: 80px;
+    color: rgba(201,130,152,.045);
+    transform: rotate(-90deg);
+    letter-spacing: 5px;
+}
+
+.timeline {
+    max-width: 900px;
+}
+
+.timeline-item {
+    padding-bottom: 52px;
+}
+
+.timeline-content {
+    padding: 20px 25px;
+    background: rgba(255,255,255,.40);
+    border: 1px solid rgba(201,130,152,.10);
+    border-radius: 4px;
+    transition: .3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(8px);
+    background: rgba(255,255,255,.68);
+    box-shadow: 8px 12px 30px rgba(157,102,119,.07);
+}
+
+/* --- SKILLS: varied cards instead of identical blocks --- */
+.skills-grid {
+    grid-template-columns: 1.15fr .85fr 1fr;
+    gap: 22px;
+}
+
+.skill-card {
+    min-height: 190px;
+    border-radius: 4px;
+    box-shadow: 0 8px 30px rgba(157,102,119,.035);
+}
+
+.skill-card:nth-child(2) {
+    transform: translateY(22px);
+}
+
+.skill-card:nth-child(3) {
+    transform: translateY(-8px);
+}
+
+.skill-card:nth-child(4) {
+    transform: translateY(10px);
+}
+
+.skill-card:nth-child(5) {
+    transform: translateY(-15px);
+}
+
+.skill-card:nth-child(6) {
+    transform: translateY(18px);
+}
+
+.skill-card:nth-child(2):hover,
+.skill-card:nth-child(3):hover,
+.skill-card:nth-child(4):hover,
+.skill-card:nth-child(5):hover,
+.skill-card:nth-child(6):hover {
+    transform: translateY(-2px);
+}
+
+/* --- PROJECTS: magazine/editorial grid --- */
+.projects-section {
+    padding-top: 130px;
+    padding-bottom: 140px;
+}
+
+.projects-grid {
+    grid-template-columns: 1.25fr .75fr;
+    grid-template-rows: auto auto;
+    gap: 35px;
+}
+
+.project-card {
+    border-radius: 3px;
+}
+
+.project-card:first-child {
+    grid-row: span 2;
+}
+
+.project-card:first-child .project-image {
+    height: 390px;
+}
+
+.project-card:first-child .project-info {
+    padding: 30px;
+}
+
+.project-card:nth-child(2),
+.project-card:nth-child(3) {
+    margin-top: 0;
+}
+
+.project-card:nth-child(2) .project-image,
+.project-card:nth-child(3) .project-image {
+    height: 190px;
+}
+
+.project-card:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.project-card:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.project-card:nth-child(2):hover,
+.project-card:nth-child(3):hover {
+    transform: translateY(-8px) rotate(0deg);
+}
+
+.project-card:first-child::after,
+.project-card:nth-child(2)::after,
+.project-card:nth-child(3)::after {
+    content: "✦";
+    position: absolute;
+    right: 16px;
+    top: 14px;
+    color: rgba(255,255,255,.85);
+    font-size: 16px;
+    z-index: 5;
+}
+
+/* --- CONTACT: more spacious + decorative --- */
+.contact-section {
+    padding-top: 145px;
+    padding-bottom: 145px;
+}
+
+.contact-content::before {
+    content: "LET'S CONNECT";
+    position: absolute;
+    left: 50%;
+    top: -80px;
+    transform: translateX(-50%);
+    font-family: "Playfair Display", serif;
+    font-size: 70px;
+    letter-spacing: 5px;
+    color: rgba(201,130,152,.055);
+    white-space: nowrap;
+}
+
+.social-links a {
+    box-shadow: 0 7px 20px rgba(157,102,119,.04);
+}
+
+/* =========================================================
+   MOBILE OVERRIDES FOR THE NEW LAYOUT
+========================================================= */
+
+@media (max-width: 950px) {
+    .hero {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .hero-photo {
+        width: 330px;
+    }
+
+    .photo-frame {
+        width: 285px;
+        height: 380px;
+    }
+
+    .hero-photo::before {
+        width: 300px;
+        height: 390px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-card:nth-child(n) {
+        transform: none;
+    }
+}
+
+@media (max-width: 850px) {
+    .hero-content {
+        padding-left: 0;
+    }
+
+    .hero-content::before {
+        left: 0;
+        top: -25px;
+    }
+
+    .hero-content::after {
+        left: 0;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .personal-card {
+        transform: none;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .project-card:first-child {
+        grid-row: auto;
+        grid-column: 1 / -1;
+    }
+
+    .project-card:first-child .project-image {
+        height: 300px;
+    }
+
+    .project-card:nth-child(2),
+    .project-card:nth-child(3) {
+        transform: none;
+    }
+
+    .education-section::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero-content::before {
+        font-size: 90px;
+        top: -18px;
+    }
+
+    .hero-content::after {
+        bottom: -22px;
+    }
+
+    .hero-photo {
+        width: 290px;
+        min-height: auto;
+    }
+
+    .photo-frame {
+        width: 270px;
+        height: 350px;
+    }
+
+    .hero-photo::before {
+        width: 280px;
+        height: 360px;
+    }
+
+    .section-heading {
+        padding-left: 48px;
+    }
+
+    .section-heading::before {
+        font-size: 19px;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card:nth-child(n) {
+        transform: none;
+    }
+
+    .project-card:first-child {
+        grid-column: auto;
+    }
+
+    .project-card:first-child .project-image {
+        height: 230px;
+    }
+
+    .project-card:nth-child(2) .project-image,
+    .project-card:nth-child(3) .project-image {
+        height: 210px;
+    }
+
+    .contact-content::before {
+        font-size: 38px;
+        top: -50px;
+    }
+}
